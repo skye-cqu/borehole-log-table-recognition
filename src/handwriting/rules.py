@@ -269,7 +269,192 @@ def _verdict_adopt(v, ctx):
     return new
 
 
-# ---- 批次3:desc 双引擎收敛采纳 ----
+# ---- 收官数值列域门禁修复(2026-11-09,用户指令"部分列只能出现对应内容") ----
+
+_NUM_VERDICTS = None
+
+
+_COL2ROLE = {"深度": "depth", "层厚": "thick", "采长": "length",
+             "真厚": "true_thick", "倾角": "dip"}
+
+
+def _num_verdicts():
+    """(stem, xlsx行, 角色) → 裁片亲核裁决值(用户授权流程,现值匹配守卫)。"""
+    global _NUM_VERDICTS
+    if _NUM_VERDICTS is None:
+        p = paths.AUTORESEARCH_DIR / "数值裁决账_20261109.json"
+        m = {}
+        if p.exists():
+            for e in json.loads(p.read_text(encoding="utf-8")):
+                g = e["图"] if str(e["图"]).startswith("钻孔柱状图") else f"钻孔柱状图{e['图']}"
+                m[(g, int(e["xlsx行"]), _COL2ROLE.get(e["列"], e["列"]))] = str(e["新值"])
+        _NUM_VERDICTS = m
+    return _NUM_VERDICTS
+
+
+def _nnum(s):
+    try:
+        return float(str(s).strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def _row_depth(rows, i, rc):
+    """第 i 行深度(快照):串列污染格(『145.00|2.』)取 | 前段。"""
+    if "depth" not in rc or i >= len(rows):
+        return None
+    s = str(rows[i][rc["depth"]]).strip()
+    m = _SPLIT.match(s)
+    return _nnum(m.group(1) if m else s)
+
+
+def _cos_ok(cand, ctx):
+    """真厚候选 ≈ 层厚×cos(倾角) ±0.06(写手笔差容差)。"""
+    rc = ctx["role_col"]
+    t = _nnum(ctx["rowvals"][rc["thick"]]) if "thick" in rc else None
+    d = _nnum(ctx["rowvals"][rc["dip"]]) if "dip" in rc else None
+    if t is None or t > 60 or d is None:
+        return False
+    return abs(_nnum(cand) - t * math.cos(math.radians(d))) <= 0.06
+
+
+def _gap_ok(cand, ctx):
+    """层厚候选 = 上/下行深度差 ±0.021(任一方向可算即验;深度取串列重组前段)。"""
+    rc = ctx["role_col"]
+    i, rows, cv = ctx["r_idx"], ctx["rows"], _nnum(cand)
+    d = _row_depth(rows, i, rc)
+    pd = _row_depth(rows, i - 1, rc) if i > 0 else None
+    nd = _row_depth(rows, i + 1, rc) if i + 1 < len(rows) else None
+    for ref in ((d - pd) if (d is not None and pd is not None) else None,
+                (nd - d) if (d is not None and nd is not None) else None):
+        if ref is not None and abs(cv - ref) <= 0.021:
+            return True
+    return False
+
+
+def _depth_chain_ok(cand, ctx):
+    """深度候选:上行深度+本层厚 或 本深度+本层厚=下行深度 ±0.021(深度取重组前段)。"""
+    rc = ctx["role_col"]
+    if "depth" not in rc or "thick" not in rc:
+        return False
+    i, rows, cv = ctx["r_idx"], ctx["rows"], _nnum(cand)
+    t = _nnum(rows[i][rc["thick"]])
+    pd = _row_depth(rows, i - 1, rc) if i > 0 else None
+    nd = _row_depth(rows, i + 1, rc) if i + 1 < len(rows) else None
+    if t is None:
+        return False
+    return ((pd is not None and abs(pd + t - cv) <= 0.021)
+            or (nd is not None and abs(cv + t - nd) <= 0.021))
+
+
+_LEAD_DOT = re.compile(r"^\.(?=\d)")
+_DBL_DOT = re.compile(r"^(\d+)\.\.(\d+)$")
+_QUOTE_DOT = re.compile(r"^(\d+)'(\d+)$")
+_TAIL_ALPHA = re.compile(r"^(\d+(?:\.\d+)?)[A-Za-zＥＥ]$")
+_SPLIT = re.compile(r"^(\d+(?:\.\d+)?)\s*\|\s*(\d?\.)(\d*)$")
+_SPACE_DOT = re.compile(r"^(\d+)\s+(\d{1,2})$")
+
+
+def _num_domain_norm(v, ctx):
+    """形态归位(数值不变,零风险):缺前导 0/双点/撇号小数 → 规范小数。
+
+    原图小数点=短横/点/撇(run10 实证),OCR 读成 . - ' 混形态。
+    """
+    s = str(v).strip()
+    if not s or "\n" in s:
+        return None
+    fixed = None
+    if _LEAD_DOT.match(s) and _nnum("0" + s) is not None:
+        fixed = "0" + s
+    elif _DBL_DOT.match(s):
+        fixed = s.replace("..", ".")
+    elif _QUOTE_DOT.match(s):
+        fixed = s.replace("'", ".")
+    if fixed is None or _nnum(fixed) is None:
+        return None
+    return fixed if fixed != s else None
+
+
+def _num_domain_fix(v, ctx):
+    """值变修复(须物理链/裁决守卫):串列重组/空格丢点/字母尾缀剥除。
+
+    1) 裁决账(亲核)优先,现值匹配才应用;
+    2) 深度"145.00|2."+层厚格"97":深度取|前段(层厚=后段+层厚格,由层厚格
+       自己的规则修),验证 上深度+重组层厚≈前段;
+    3) 层厚纯2位数字且深度格带"|n."尾:拼接 n.?层厚格 → 过深度差链才采;
+    4) 空格丢点"3 05"(原图小数点极小/空格,1020_11 实证):插点候选过
+       深度差/cos 链唯一定位才采;
+    5) 尾缀字母"11.5E":剥缀过 cos/深度差链才采(不过=维持待人工)。
+    """
+    key = (ctx["stem"], ctx["row"], ctx["role"])
+    vd = _num_verdicts().get(key)
+    if vd is not None:
+        return vd if str(v).strip() != vd else None
+    s = str(v).strip()
+    if not s:
+        return None
+    rc = ctx["role_col"]
+    if ctx["role"] == "depth":
+        m = _SPLIT.match(s)
+        if m:
+            head, pre, tail = m.group(1), m.group(2), m.group(3)
+            tcell = str(ctx["rowvals"][rc["thick"]]).strip() if "thick" in rc else ""
+            thv = _nnum(pre + (tail if tail else "") + (tcell if re.fullmatch(r"\d{1,2}", tcell) else ""))
+            # 深度=前段;验证:上行+重组层厚≈前段 或 前段+重组层厚≈下行
+            if _depth_chain_ok_with(head, thv, ctx):
+                return head
+    if ctx["role"] == "thick":
+        # 深度格带 "|n." 尾:本格纯2位数字 → 拼接 n.?本格
+        dm = _SPLIT.match(str(ctx["rowvals"][rc["depth"]]).strip()) \
+            if "depth" in rc else None
+        if dm and re.fullmatch(r"\d{1,2}", s):
+            cand = dm.group(2) + (dm.group(3) if dm.group(3) else "") + s
+            if _nnum(cand) is not None and _gap_ok(cand, ctx):
+                return cand
+    m = _SPACE_DOT.match(s)
+    if m:
+        a, b = m.group(1), m.group(2)
+        cands = [a + "." + b, a + "." + b + "0"] if len(b) == 1 else [a + "." + b]
+        for c in cands:
+            if _nnum(c) is None:
+                continue
+            if ctx["role"] == "thick" and _gap_ok(c, ctx):
+                return c
+            if ctx["role"] == "depth" and _depth_chain_ok(c, ctx):
+                return c
+            if ctx["role"] == "true_thick" and _cos_ok(c, ctx):
+                return c
+    m = _TAIL_ALPHA.match(s)
+    if m:
+        c = m.group(1)
+        if _nnum(c) is not None:
+            if ctx["role"] == "true_thick" and _cos_ok(c, ctx):
+                return c
+            if ctx["role"] == "thick" and _gap_ok(c, ctx):
+                return c
+            if ctx["role"] == "depth" and _depth_chain_ok(c, ctx):
+                return c
+    return None
+
+
+def _depth_chain_ok_with(head, thick_cand, ctx):
+    """深度候选+显式层厚候选 的链验证(串列重组专用)。"""
+    rc = ctx["role_col"]
+    if "depth" not in rc or thick_cand is None:
+        return False
+    i, rows, cv = ctx["r_idx"], ctx["rows"], _nnum(head)
+    pd = _nnum(rows[i - 1][rc["depth"]]) if i > 0 else None
+    nd = _nnum(rows[i + 1][rc["depth"]]) if i + 1 < len(rows) else None
+    if cv is None:
+        return False
+    if pd is not None and abs(pd + thick_cand - cv) <= 0.021:
+        return True
+    if nd is not None and abs(cv + thick_cand - nd) <= 0.021:
+        return True
+    return False
+
+
+
 
 _DESC_EV = None
 _BRIDGE = None
@@ -511,6 +696,10 @@ RULES = [
          "A 类只保护不写,B 类让位旧规则;定谳格对其余 desc 门设保护)"),
     Rule("碎片补全", {"desc"}, _fragment_fill,
          "C类判读后残余碎片格(值⊂纸面全文)采 Agnes 三票同文全文,定向 3 格"),
+    Rule("数值域归位", NUMERIC_ROLES, _num_domain_norm,
+         "数值不变形态归位:缺前导0(.35→0.35)/双点(1..78)/撇号小数(11'98,原图小数点=点/撇/横)"),
+    Rule("数值域修复", NUMERIC_ROLES, _num_domain_fix,
+         "列域门禁值变修复(物理链/裁决守卫):深度|层厚串列重组/空格丢点(3 05→3.05)/字母尾缀剥除(11.5E)"),
     Rule("标点小数", NUMERIC_ROLES, _punct_decimal,
          "数字间标点→小数点(原图小数点=短横/点,OCR 读成冒号逗号)"),
     Rule("尾部杂质", NUMERIC_ROLES, _trailing_junk,

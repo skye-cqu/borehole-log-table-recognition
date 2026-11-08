@@ -1,0 +1,455 @@
+{
+ "1019": [
+  {
+   "col": 2,
+   "src": 3,
+   "main_n": 84,
+   "main_x": 350.0,
+   "main_y": [
+    7171,
+    17644
+   ],
+   "sec_n": 11,
+   "sec_x": 340.5,
+   "sec_y": [
+    724,
+    7763
+   ],
+   "dev_med": -35.1,
+   "owner": "none",
+   "owner_n": 11
+  },
+  {
+   "col": 3,
+   "src": 4,
+   "main_n": 36,
+   "main_x": 462.0,
+   "main_y": [
+    9613,
+    14394
+   ],
+   "sec_n": 27,
+   "sec_x": 399.0,
+   "sec_y": [
+    724,
+    7171
+   ],
+   "dev_med": -78.8,
+   "owner": "none",
+   "owner_n": 27
+  },
+  {
+   "col": 4,
+   "src": 5,
+   "main_n": 76,
+   "main_x": 557.0,
+   "main_y": [
+    8513,
+    17641
+   ],
+   "sec_n": 8,
+   "sec_x": 549.5,
+   "sec_y": [
+    725,
+    4870
+   ],
+   "dev_med": -8.0,
+   "owner": "none",
+   "owner_n": 8
+  },
+  {
+   "col": 5,
+   "src": 6,
+   "main_n": 84,
+   "main_x": 646.8,
+   "main_y": [
+    7176,
+    17640
+   ],
+   "sec_n": 28,
+   "sec_x": 608.8,
+   "sec_y": [
+    727,
+    7174
+   ],
+   "dev_med": -64.8,
+   "owner": "none",
+   "owner_n": 28
+  },
+  {
+   "col": 6,
+   "src": 7,
+   "main_n": 89,
+   "main_x": 728.0,
+   "main_y": [
+    2947,
+    17639
+   ],
+   "sec_n": 23,
+   "sec_x": 692.5,
+   "sec_y": [
+    728,
+    7176
+   ],
+   "dev_med": -78.4,
+   "owner": "none",
+   "owner_n": 23
+  },
+  {
+   "col": 7,
+   "src": 8,
+   "main_n": 97,
+   "main_x": 809.5,
+   "main_y": [
+    1804,
+    17638
+   ],
+   "sec_n": 22,
+   "sec_x": 829.5,
+   "sec_y": [
+    7808,
+    15020
+   ],
+   "dev_med": 40.1,
+   "owner": "none",
+   "owner_n": 22
+  },
+  {
+   "col": 7,
+   "src": 8,
+   "main_n": 97,
+   "main_x": 809.5,
+   "main_y": [
+    1804,
+    17638
+   ],
+   "sec_n": 4,
+   "sec_x": 820.2,
+   "sec_y": [
+    729,
+    2909
+   ],
+   "dev_med": -66.8,
+   "owner": "none",
+   "owner_n": 4
+  }
+ ],
+ "1023": [
+  {
+   "col": 8,
+   "src": 9,
+   "main_n": 72,
+   "main_x": 1029.5,
+   "main_y": [
+    576,
+    8659
+   ],
+   "sec_n": 13,
+   "sec_x": 1054.5,
+   "sec_y": [
+    9010,
+    11108
+   ],
+   "dev_med": -39.1,
+   "owner": "none",
+   "owner_n": 13
+  }
+ ],
+ "1024": [
+  {
+   "col": 7,
+   "src": "recovery",
+   "main_n": 137,
+   "main_x": 794.0,
+   "main_y": [
+    1243,
+    19410
+   ],
+   "sec_n": 69,
+   "sec_x": 834.0,
+   "sec_y": [
+    1555,
+    19409
+   ],
+   "dev_med": 39.8,
+   "owner": "none",
+   "owner_n": 69
+  }
+ ],
+ "1030": [
+  {
+   "col": 1,
+   "src": 2,
+   "main_n": 39,
+   "main_x": 272.0,
+   "main_y": [
+    870,
+    17279
+   ],
+   "sec_n": 2,
+   "sec_x": 264.2,
+   "sec_y": [
+    312,
+    870
+   ],
+   "dev_med": 16.0,
+   "owner": "none",
+   "owner_n": 2
+  }
+ ],
+ "1031": [
+  {
+   "col": 7,
+   "src": 8,
+   "main_n": 62,
+   "main_x": 784.2,
+   "main_y": [
+    745,
+    18332
+   ],
+   "sec_n": 13,
+   "sec_x": 808.5,
+   "sec_y": [
+    9787,
+    13338
+   ],
+   "dev_med": 35.3,
+   "owner": "none",
+   "owner_n": 13
+  }
+ ],
+ "1033": [
+  {
+   "col": 6,
+   "src": 7,
+   "main_n": 23,
+   "main_x": 872.5,
+   "main_y": [
+    10957,
+    19777
+   ],
+   "sec_n": 21,
+   "sec_x": 840.5,
+   "sec_y": [
+    741,
+    9099
+   ],
+   "dev_med": -73.3,
+   "owner": "none",
+   "owner_n": 21
+  },
+  {
+   "col": 6,
+   "src": 7,
+   "main_n": 23,
+   "main_x": 872.5,
+   "main_y": [
+    10957,
+    19777
+   ],
+   "sec_n": 3,
+   "sec_x": 897.0,
+   "sec_y": [
+    18356,
+    19819
+   ],
+   "dev_med": 42.0,
+   "owner": "none",
+   "owner_n": 3
+  },
+  {
+   "col": 7,
+   "src": "recovery878",
+   "main_n": 23,
+   "main_x": 920.0,
+   "main_y": [
+    7777,
+    18325
+   ],
+   "sec_n": 21,
+   "sec_x": 917.0,
+   "sec_y": [
+    749,
+    10881
+   ],
+   "dev_med": -38.2,
+   "owner": "none",
+   "owner_n": 21
+  },
+  {
+   "col": 8,
+   "src": 8,
+   "main_n": 43,
+   "main_x": 1086.5,
+   "main_y": [
+    742,
+    19809
+   ],
+   "sec_n": 15,
+   "sec_x": 1079.0,
+   "sec_y": [
+    1053,
+    11252
+   ],
+   "dev_med": -42.0,
+   "owner": "none",
+   "owner_n": 15
+  }
+ ],
+ "1035": [
+  {
+   "col": 1,
+   "src": 2,
+   "main_n": 23,
+   "main_x": 323.0,
+   "main_y": [
+    9502,
+    20063
+   ],
+   "sec_n": 16,
+   "sec_x": 271.8,
+   "sec_y": [
+    742,
+    9502
+   ],
+   "dev_med": 80.5,
+   "owner": "none",
+   "owner_n": 16
+  }
+ ],
+ "1042": [
+  {
+   "col": 2,
+   "src": "rebuild:煤层|深度",
+   "main_n": 62,
+   "main_x": 319.2,
+   "main_y": [
+    758,
+    12611
+   ],
+   "sec_n": 15,
+   "sec_x": 305.0,
+   "sec_y": [
+    12761,
+    19745
+   ],
+   "dev_med": -57.5,
+   "owner": "none",
+   "owner_n": 15
+  },
+  {
+   "col": 3,
+   "src": "rebuild:深度|层厚",
+   "main_n": 67,
+   "main_x": 445.0,
+   "main_y": [
+    776,
+    13072
+   ],
+   "sec_n": 12,
+   "sec_x": 383.0,
+   "sec_y": [
+    16739,
+    19744
+   ],
+   "dev_med": -117.6,
+   "owner": "none",
+   "owner_n": 12
+  },
+  {
+   "col": 4,
+   "src": "rebuild:层厚|采长",
+   "main_n": 61,
+   "main_x": 526.5,
+   "main_y": [
+    756,
+    12577
+   ],
+   "sec_n": 42,
+   "sec_x": 494.8,
+   "sec_y": [
+    13220,
+    19725
+   ],
+   "dev_med": -79.7,
+   "owner": "none",
+   "owner_n": 42
+  },
+  {
+   "col": 5,
+   "src": "rebuild:采长|倾角",
+   "main_n": 68,
+   "main_x": 615.8,
+   "main_y": [
+    756,
+    13071
+   ],
+   "sec_n": 12,
+   "sec_x": 594.5,
+   "sec_y": [
+    16737,
+    19725
+   ],
+   "dev_med": -80.2,
+   "owner": "none",
+   "owner_n": 12
+  },
+  {
+   "col": 7,
+   "src": 6,
+   "main_n": 43,
+   "main_x": 687.0,
+   "main_y": [
+    755,
+    9821
+   ],
+   "sec_n": 35,
+   "sec_x": 571.0,
+   "sec_y": [
+    12610,
+    16737
+   ],
+   "dev_med": -168.4,
+   "owner": "none",
+   "owner_n": 35
+  },
+  {
+   "col": 7,
+   "src": 6,
+   "main_n": 43,
+   "main_x": 687.0,
+   "main_y": [
+    755,
+    9821
+   ],
+   "sec_n": 10,
+   "sec_x": 648.0,
+   "sec_y": [
+    13071,
+    14489
+   ],
+   "dev_med": -85.3,
+   "owner": "none",
+   "owner_n": 10
+  },
+  {
+   "col": 8,
+   "src": 8,
+   "main_n": 89,
+   "main_x": 986.0,
+   "main_y": [
+    751,
+    19739
+   ],
+   "sec_n": 55,
+   "sec_x": 942.0,
+   "sec_y": [
+    1063,
+    19740
+   ],
+   "dev_med": -42.1,
+   "owner": "none",
+   "owner_n": 55
+  }
+ ]
+}

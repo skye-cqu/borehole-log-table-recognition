@@ -1,0 +1,450 @@
+[
+ {
+  "tag": "1015_行55",
+  "来源": "分裂判读v2(S0)",
+  "protect": true,
+  "len_cur": 67,
+  "len_seed": 66
+ },
+ {
+  "tag": "1016_行103",
+  "来源": "分裂判读v2(S1)",
+  "protect": true,
+  "len_cur": 42,
+  "len_seed": 42
+ },
+ {
+  "tag": "1016_行68",
+  "来源": "分裂判读v2(S0)",
+  "protect": true,
+  "len_cur": 35,
+  "len_seed": 34
+ },
+ {
+  "tag": "1016_行70",
+  "来源": "分裂判读v2(S0)",
+  "protect": true,
+  "len_cur": 45,
+  "len_seed": 44
+ },
+ {
+  "tag": "1016_行73",
+  "来源": "分裂判读v2(S0)",
+  "protect": true,
+  "len_cur": 31,
+  "len_seed": 31
+ },
+ {
+  "tag": "1018_行107",
+  "来源": "分裂判读v2(S2)",
+  "protect": true,
+  "len_cur": 37,
+  "len_seed": 38
+ },
+ {
+  "tag": "1019_行46",
+  "来源": "分裂判读v2(S3)",
+  "protect": true,
+  "len_cur": 30,
+  "len_seed": 29
+ },
+ {
+  "tag": "1020_行100",
+  "来源": "分裂判读v2(S4)",
+  "protect": true,
+  "len_cur": 43,
+  "len_seed": 45
+ },
+ {
+  "tag": "1020_行16",
+  "来源": "分裂判读v2(S3)",
+  "protect": true,
+  "len_cur": 50,
+  "len_seed": 52
+ },
+ {
+  "tag": "1020_行38",
+  "来源": "分裂判读v2(S3)",
+  "protect": true,
+  "len_cur": 18,
+  "len_seed": 21
+ },
+ {
+  "tag": "1022_行5",
+  "来源": "分裂判读v2(S5)",
+  "protect": true,
+  "len_cur": 26,
+  "len_seed": 27
+ },
+ {
+  "tag": "1022_行50",
+  "来源": "分裂判读v2(S5)",
+  "protect": true,
+  "len_cur": 5,
+  "len_seed": 76
+ },
+ {
+  "tag": "1023_行117",
+  "来源": "分裂判读v2(S7)",
+  "protect": true,
+  "len_cur": 33,
+  "len_seed": 33
+ },
+ {
+  "tag": "1023_行20",
+  "来源": "分裂判读v2(S5)",
+  "protect": true,
+  "len_cur": 7,
+  "len_seed": 36
+ },
+ {
+  "tag": "1023_行33",
+  "来源": "分裂判读v2(S6)",
+  "protect": true,
+  "len_cur": 42,
+  "len_seed": 42
+ },
+ {
+  "tag": "1023_行55",
+  "来源": "分裂判读v2(S6)",
+  "protect": true,
+  "len_cur": 41,
+  "len_seed": 41
+ },
+ {
+  "tag": "1023_行62",
+  "来源": "分裂判读v2(S6)",
+  "protect": true,
+  "len_cur": 36,
+  "len_seed": 36
+ },
+ {
+  "tag": "1024_行141",
+  "来源": "分裂判读v2(S7)",
+  "protect": true,
+  "len_cur": 68,
+  "len_seed": 72
+ },
+ {
+  "tag": "1024_行153",
+  "来源": "分裂判读v2(S7)",
+  "protect": true,
+  "len_cur": 34,
+  "len_seed": 34
+ },
+ {
+  "tag": "1024_行29",
+  "来源": "分裂判读v2(S7)",
+  "protect": true,
+  "len_cur": 47,
+  "len_seed": 47
+ },
+ {
+  "tag": "1024_行8",
+  "来源": "分裂判读v2(S7)",
+  "protect": true,
+  "len_cur": 34,
+  "len_seed": 35
+ },
+ {
+  "tag": "1027_行113",
+  "来源": "分裂判读v2(S8)",
+  "protect": true,
+  "len_cur": 56,
+  "len_seed": 47
+ },
+ {
+  "tag": "1027_行30",
+  "来源": "分裂判读v2(S7)",
+  "protect": true,
+  "len_cur": 34,
+  "len_seed": 33
+ },
+ {
+  "tag": "1027_行36",
+  "来源": "分裂判读v2(S8)",
+  "protect": true,
+  "len_cur": 56,
+  "len_seed": 47
+ },
+ {
+  "tag": "1027_行5",
+  "来源": "分裂判读v2(S7)",
+  "protect": true,
+  "len_cur": 27,
+  "len_seed": 27
+ },
+ {
+  "tag": "1027_行82",
+  "来源": "分裂判读v2(S8)",
+  "protect": true,
+  "len_cur": 20,
+  "len_seed": 20
+ },
+ {
+  "tag": "1028_行113",
+  "来源": "分裂判读v2(S9)",
+  "protect": true,
+  "len_cur": 42,
+  "len_seed": 43
+ },
+ {
+  "tag": "1028_行130",
+  "来源": "分裂判读v2(S9)",
+  "protect": true,
+  "len_cur": 39,
+  "len_seed": 39
+ },
+ {
+  "tag": "1028_行147",
+  "来源": "分裂判读v2(S9)",
+  "protect": true,
+  "len_cur": 53,
+  "len_seed": 46
+ },
+ {
+  "tag": "1030_行44",
+  "来源": "分裂判读v2(S10)",
+  "protect": true,
+  "len_cur": 29,
+  "len_seed": 29
+ },
+ {
+  "tag": "1030_行84",
+  "来源": "分裂判读v2(S10)",
+  "protect": true,
+  "len_cur": 26,
+  "len_seed": 26
+ },
+ {
+  "tag": "1031_行100",
+  "来源": "分裂判读v2(S10)",
+  "protect": true,
+  "len_cur": 42,
+  "len_seed": 43
+ },
+ {
+  "tag": "1031_行95",
+  "来源": "分裂判读v2(S10)",
+  "protect": true,
+  "len_cur": 5,
+  "len_seed": 3
+ },
+ {
+  "tag": "1033_行34",
+  "来源": "分裂判读v2(S10)",
+  "protect": true,
+  "len_cur": 73,
+  "len_seed": 73
+ },
+ {
+  "tag": "1034_行129",
+  "来源": "分裂判读v2(S11)",
+  "protect": true,
+  "len_cur": 42,
+  "len_seed": 43
+ },
+ {
+  "tag": "1034_行159",
+  "来源": "分裂判读v2(S11)",
+  "protect": true,
+  "len_cur": 43,
+  "len_seed": 28
+ },
+ {
+  "tag": "1034_行86",
+  "来源": "分裂判读v2(S11)",
+  "protect": true,
+  "len_cur": 6,
+  "len_seed": 7
+ },
+ {
+  "tag": "1035_行131",
+  "来源": "分裂判读v2(S12)",
+  "protect": true,
+  "len_cur": 65,
+  "len_seed": 64
+ },
+ {
+  "tag": "1035_行164",
+  "来源": "分裂判读v2(S13)",
+  "protect": true,
+  "len_cur": 36,
+  "len_seed": 37
+ },
+ {
+  "tag": "1035_行169",
+  "来源": "分裂判读v2(S13)",
+  "protect": true,
+  "len_cur": 37,
+  "len_seed": 39
+ },
+ {
+  "tag": "1035_行24",
+  "来源": "分裂判读v2(S12)",
+  "protect": true,
+  "len_cur": 39,
+  "len_seed": 40
+ },
+ {
+  "tag": "1035_行30",
+  "来源": "分裂判读v2(S12)",
+  "protect": true,
+  "len_cur": 41,
+  "len_seed": 40
+ },
+ {
+  "tag": "1035_行48",
+  "来源": "分裂判读v2(S12)",
+  "protect": true,
+  "len_cur": 22,
+  "len_seed": 22
+ },
+ {
+  "tag": "1035_行54",
+  "来源": "分裂判读v2(S12)",
+  "protect": true,
+  "len_cur": 33,
+  "len_seed": 34
+ },
+ {
+  "tag": "1039_行82",
+  "来源": "分裂判读v2(S13)",
+  "protect": true,
+  "len_cur": 12,
+  "len_seed": 12
+ },
+ {
+  "tag": "1041_行33",
+  "来源": "分裂判读v2(S13)",
+  "protect": true,
+  "len_cur": 5,
+  "len_seed": 5
+ },
+ {
+  "tag": "1041_行49",
+  "来源": "分裂判读v2(S14)",
+  "protect": true,
+  "len_cur": 5,
+  "len_seed": 3
+ },
+ {
+  "tag": "1041_行99",
+  "来源": "分裂判读v2(S14)",
+  "protect": true,
+  "len_cur": 42,
+  "len_seed": 42
+ },
+ {
+  "tag": "1042_行37",
+  "来源": "分裂判读v2(S14)",
+  "protect": true,
+  "len_cur": 45,
+  "len_seed": 47
+ },
+ {
+  "tag": "1042_行42",
+  "来源": "分裂判读v2(S14)",
+  "protect": true,
+  "len_cur": 182,
+  "len_seed": 186
+ },
+ {
+  "tag": "1042_行80",
+  "来源": "分裂判读v2(S14)",
+  "protect": true,
+  "len_cur": 39,
+  "len_seed": 41
+ },
+ {
+  "tag": "1043_行47",
+  "来源": "分裂判读v2(S14)",
+  "protect": true,
+  "len_cur": 58,
+  "len_seed": 58
+ },
+ {
+  "tag": "1043_行6",
+  "来源": "分裂判读v2(S14)",
+  "protect": true,
+  "len_cur": 66,
+  "len_seed": 66
+ },
+ {
+  "tag": "1043_行8",
+  "来源": "分裂判读v2(S14)",
+  "protect": true,
+  "len_cur": 46,
+  "len_seed": 48
+ },
+ {
+  "tag": "1044_行68",
+  "来源": "分裂判读v2(S14)",
+  "protect": true,
+  "len_cur": 15,
+  "len_seed": 17
+ },
+ {
+  "tag": "1044_行71",
+  "来源": "分裂判读v2(S14)",
+  "protect": true,
+  "len_cur": 44,
+  "len_seed": 46
+ },
+ {
+  "tag": "1044_行75",
+  "来源": "分裂判读v2(S15)",
+  "protect": true,
+  "len_cur": 95,
+  "len_seed": 46
+ },
+ {
+  "tag": "1018_行91",
+  "来源": "矛盾池r8(无收敛)|r8护",
+  "protect": 1,
+  "len_cur": 37,
+  "len_seed": 2
+ },
+ {
+  "tag": "1022_行153",
+  "来源": "r8",
+  "protect": 1,
+  "len_cur": 74,
+  "len_seed": 60
+ },
+ {
+  "tag": "1024_行157",
+  "来源": "r8",
+  "protect": 0,
+  "len_cur": 101,
+  "len_seed": 60
+ },
+ {
+  "tag": "1025_行78",
+  "来源": "r8",
+  "protect": 0,
+  "len_cur": 67,
+  "len_seed": 60
+ },
+ {
+  "tag": "1028_行133",
+  "来源": "r8",
+  "protect": 0,
+  "len_cur": 71,
+  "len_seed": 60
+ },
+ {
+  "tag": "1032_行68",
+  "来源": "r8",
+  "protect": 1,
+  "len_cur": 52,
+  "len_seed": 2
+ },
+ {
+  "tag": "1042_行62",
+  "来源": "r8",
+  "protect": 1,
+  "len_cur": 53,
+  "len_seed": 2
+ }
+]

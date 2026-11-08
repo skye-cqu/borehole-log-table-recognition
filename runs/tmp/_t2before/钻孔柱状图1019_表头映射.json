@@ -1,0 +1,232 @@
+{
+ "image": "钻孔柱状图1019",
+ "band": [
+  732,
+  934
+ ],
+ "sep_x_band": [
+  327.0,
+  386.3,
+  449.3,
+  573.0,
+  659.6,
+  746.9,
+  826.0,
+  903.0,
+  1108.0,
+  2436.9
+ ],
+ "n_sep": 10,
+ "columns": [
+  {
+   "name": "地质时代",
+   "left_sep": 0,
+   "right_sep": 1,
+   "x_in_band": [
+    327.0,
+    386.3
+   ],
+   "width": 59.2
+  },
+  {
+   "name": "煤层标志层号",
+   "left_sep": 1,
+   "right_sep": 2,
+   "x_in_band": [
+    386.3,
+    449.3
+   ],
+   "width": 63.0
+  },
+  {
+   "name": "深度",
+   "left_sep": 2,
+   "right_sep": 3,
+   "x_in_band": [
+    449.3,
+    573.0
+   ],
+   "width": 123.7
+  },
+  {
+   "name": "层厚",
+   "left_sep": 3,
+   "right_sep": 4,
+   "x_in_band": [
+    573.0,
+    659.6
+   ],
+   "width": 86.7
+  },
+  {
+   "name": "采长",
+   "left_sep": 4,
+   "right_sep": 5,
+   "x_in_band": [
+    659.6,
+    746.9
+   ],
+   "width": 87.2
+  },
+  {
+   "name": "倾角",
+   "left_sep": 5,
+   "right_sep": 6,
+   "x_in_band": [
+    746.9,
+    826.0
+   ],
+   "width": 79.1
+  },
+  {
+   "name": "真厚",
+   "left_sep": 6,
+   "right_sep": 7,
+   "x_in_band": [
+    826.0,
+    903.0
+   ],
+   "width": 77.0
+  },
+  {
+   "name": "岩性描述",
+   "left_sep": 8,
+   "right_sep": 9,
+   "x_in_band": [
+    1108.0,
+    2436.9
+   ],
+   "width": 1328.9
+  }
+ ],
+ "drop_columns": [
+  {
+   "name": "柱状",
+   "left_sep": 7,
+   "right_sep": 8,
+   "x_in_band": [
+    903.0,
+    1108.0
+   ],
+   "width": 205.0
+  },
+  {
+   "name": "简易水文曲线",
+   "left_sep": 9,
+   "right_sep": -1,
+   "x_in_band": [
+    2436.9,
+    3376.0
+   ],
+   "width": 939.1
+  }
+ ],
+ "keep": [
+  {
+   "name": "地质时代",
+   "left_sep": 0,
+   "right_sep": 1,
+   "x_in_band": [
+    327.0,
+    386.3
+   ],
+   "width": 59.2
+  },
+  {
+   "name": "煤层标志层号",
+   "left_sep": 1,
+   "right_sep": 2,
+   "x_in_band": [
+    386.3,
+    449.3
+   ],
+   "width": 63.0
+  },
+  {
+   "name": "深度",
+   "left_sep": 2,
+   "right_sep": 3,
+   "x_in_band": [
+    449.3,
+    573.0
+   ],
+   "width": 123.7
+  },
+  {
+   "name": "层厚",
+   "left_sep": 3,
+   "right_sep": 4,
+   "x_in_band": [
+    573.0,
+    659.6
+   ],
+   "width": 86.7
+  },
+  {
+   "name": "采长",
+   "left_sep": 4,
+   "right_sep": 5,
+   "x_in_band": [
+    659.6,
+    746.9
+   ],
+   "width": 87.2
+  },
+  {
+   "name": "倾角",
+   "left_sep": 5,
+   "right_sep": 6,
+   "x_in_band": [
+    746.9,
+    826.0
+   ],
+   "width": 79.1
+  },
+  {
+   "name": "真厚",
+   "left_sep": 6,
+   "right_sep": 7,
+   "x_in_band": [
+    826.0,
+    903.0
+   ],
+   "width": 77.0
+  },
+  {
+   "name": "岩性描述",
+   "left_sep": 8,
+   "right_sep": 9,
+   "x_in_band": [
+    1108.0,
+    2436.9
+   ],
+   "width": 1328.9
+  }
+ ],
+ "warnings": [],
+ "ok": true,
+ "header_src": "track",
+ "label_verify": {
+  "柱状": "柱",
+  "真厚": "真",
+  "倾角": "倾",
+  "采长": "采",
+  "层厚": "层",
+  "深度": "深",
+  "煤层标志层号": "煤层标士志",
+  "地质时代": "地质",
+  "岩性描述": "岩性描述"
+ },
+ "selection": {
+  "line_parts": [
+   8,
+   -1,
+   0
+  ],
+  "track": [
+   9,
+   0,
+   0
+  ]
+ }
+}
