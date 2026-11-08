@@ -20,7 +20,11 @@ sys.path.insert(0, str(ROOT))
 from openpyxl import load_workbook  # noqa: E402
 from openpyxl.cell.rich_text import CellRichText  # noqa: E402
 
+SRC = ROOT / "outputs/Excel交付_终版_20261109"
 OUT = ROOT / "runs/autoresearch_align/多源定级_20261106/列域门禁_20261109.json"
+if len(sys.argv) > 1:                      # 可选:传入目录则只检不覆盖违例清单
+    SRC = Path(sys.argv[1])
+    OUT = ROOT / "runs/tmp/_列域门禁_重放.json"
 
 NUM = re.compile(r"^\d+(?:\.\d+)?$")
 DIP = re.compile(r"^\d+(?:\.\d+)?\s*°?$")
@@ -45,7 +49,7 @@ def col_of(hdr, names):
 
 
 viol, checked = [], 0
-for p in sorted(glob.glob(str(ROOT / "outputs/Excel交付_终版_20261109/*_整合.xlsx"))):
+for p in sorted(glob.glob(str(SRC / "*_整合.xlsx"))):
     stem = Path(p).name.split("_")[0].replace("钻孔柱状图", "")
     wb = load_workbook(p, rich_text=True)
     ws = wb.active

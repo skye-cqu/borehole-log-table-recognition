@@ -274,8 +274,30 @@ def _verdict_adopt(v, ctx):
 _NUM_VERDICTS = None
 
 
-_COL2ROLE = {"深度": "depth", "层厚": "thick", "采长": "length",
-             "真厚": "true_thick", "倾角": "dip"}
+_COL2ROLE = {"深度": "depth", "层厚": "thick", "采长": "length", "真厚": "true_thick",
+             "倾角": "dip", "煤层标志层号": "layer", "地质时代": "era", "岩性描述": "desc"}
+
+
+def _layer_space_norm(v, ctx):
+    """层号列空格归一(数值/语义不变):'七 上'→'七上'(OCR 分字间隙,1135 帧风格)。"""
+    s = str(v).strip()
+    if not s or (" " not in s and "\u3000" not in s):
+        return None
+    t = s.replace(" ", "").replace("\u3000", "")
+    return t if t and t != s else None
+
+
+def _col_domain_adopt(v, ctx):
+    """layer/era/desc 列域裁决采纳:裁决账定向应用(含置空),现值同文不动。
+
+    层号实读(21/25/30/18/七上)、时代列竖排名带跨行格(纸面无字)置空、
+    desc 行底书写对齐读(无芯。/煤。)——均为数值门禁裁片判读(助手弱档)。
+    """
+    key = (ctx["stem"], ctx["row"], ctx["role"])
+    vd = _num_verdicts().get(key)
+    if vd is None:
+        return None
+    return vd if str(v).strip() != vd else None
 
 
 def _num_verdicts():
@@ -353,12 +375,14 @@ _QUOTE_DOT = re.compile(r"^(\d+)'(\d+)$")
 _TAIL_ALPHA = re.compile(r"^(\d+(?:\.\d+)?)[A-Za-zＥＥ]$")
 _SPLIT = re.compile(r"^(\d+(?:\.\d+)?)\s*\|\s*(\d?\.)(\d*)$")
 _SPACE_DOT = re.compile(r"^(\d+)\s+(\d{1,2})$")
+_MID_DOT = str.maketrans({0xB7: ".", 0x2022: ".", 0x2027: ".", 0x30FB: "."})
 
 
 def _num_domain_norm(v, ctx):
-    """形态归位(数值不变,零风险):缺前导 0/双点/撇号小数 → 规范小数。
+    """形态归位(数值不变,零风险):缺前导 0/双点/撇号小数/中点小数 → 规范小数。
 
-    原图小数点=短横/点/撇(run10 实证),OCR 读成 . - ' 混形态。
+    原图小数点=短横/点/撇(run10 实证),OCR 读成 . - ' 混形态;
+    1043 全图中点"1·50"写手风格(批13-15 实证)。
     """
     s = str(v).strip()
     if not s or "\n" in s:
@@ -370,6 +394,10 @@ def _num_domain_norm(v, ctx):
         fixed = s.replace("..", ".")
     elif _QUOTE_DOT.match(s):
         fixed = s.replace("'", ".")
+    elif s.translate(_MID_DOT) != s and _nnum(s.translate(_MID_DOT)) is not None:
+        fixed = s.translate(_MID_DOT)
+    elif " " in s and re.fullmatch(r"\d+(?:\.\d+)?", s.replace(" ", "")):
+        fixed = s.replace(" ", "")      # "1. 02"/"1.2 0":空格不改变数值(1027/1019 实证)
     if fixed is None or _nnum(fixed) is None:
         return None
     return fixed if fixed != s else None
@@ -700,6 +728,10 @@ RULES = [
          "数值不变形态归位:缺前导0(.35→0.35)/双点(1..78)/撇号小数(11'98,原图小数点=点/撇/横)"),
     Rule("数值域修复", NUMERIC_ROLES, _num_domain_fix,
          "列域门禁值变修复(物理链/裁决守卫):深度|层厚串列重组/空格丢点(3 05→3.05)/字母尾缀剥除(11.5E)"),
+    Rule("层号空格归一", {"layer"}, _layer_space_norm,
+         "层号列内空格剥除('七 上'→'七上'),语义不变零风险"),
+    Rule("列域裁决采纳", {"layer", "era", "desc"}, _col_domain_adopt,
+         "列域门禁裁决账定向应用:层号实读/时代竖排名带跨行格置空/desc 行底书写对齐读(含置空)"),
     Rule("标点小数", NUMERIC_ROLES, _punct_decimal,
          "数字间标点→小数点(原图小数点=短横/点,OCR 读成冒号逗号)"),
     Rule("尾部杂质", NUMERIC_ROLES, _trailing_junk,

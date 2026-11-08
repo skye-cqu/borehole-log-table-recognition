@@ -20,7 +20,12 @@ ROOT = Path(r"D:\Skye\Documents\Work\高维智矿\7.13杂活")
 sys.path.insert(0, str(ROOT))
 from openpyxl import load_workbook  # noqa: E402
 
+SRC = ROOT / "outputs/Excel交付_终版_20261109"
 OUT = ROOT / "runs/autoresearch_align/多源定级_20261106/数值物理链扫描_20261109.json"
+import sys as _s
+if len(_s.argv) > 1:                      # 可选:传入目录只析不覆盖基线清单
+    SRC = Path(_s.argv[1])
+    OUT = ROOT / "runs/tmp/_物理链_candidate.json"
 TAIL = re.compile(r"^(\d+(?:\.\d+)?)[A-Za-zＥＥ]$")
 INT_BIG = re.compile(r"^\d{2,}$")
 
@@ -57,7 +62,7 @@ def tries(v):
 
 
 res = []
-for p in sorted(glob.glob(str(ROOT / "outputs/Excel交付_终版_20261109/*_整合.xlsx"))):
+for p in sorted(glob.glob(str(SRC / "*_整合.xlsx"))):
     stem = Path(p).name.split("_")[0].replace("钻孔柱状图", "")
     wb = load_workbook(p, rich_text=True)
     ws = wb.active
