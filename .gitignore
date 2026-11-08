@@ -1,0 +1,34 @@
+# ===== 数据与产物(业务数据不入 public 仓) =====
+data/               # 原始扫描件/参考表/结构中间产物
+outputs/            # 交付 Excel 与核验包
+runs/               # 运行期产物(种子基线/判读账本/结构json)
+rollback/           # 失败归档与历史 bundle
+off/
+
+# ===== 环境/临时 =====
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.pytest_tmp/
+.venv/
+.venv-stage04/
+.zcode/
+.worktrees/
+.playwright-mcp/
+pip-build-tracker-*/
+pip-ephem-wheel-cache-*/
+pip-install-*/
+debug.log
+*.log
+!requirements*.txt
+
+# ===== 密钥/隐私(双保险:runs/ 已整体排除) =====
+*.env
+*api_key*
+*secret*
+
+# ===== 二进制大件 =====
+*.zip
+*.rar
+*.7z

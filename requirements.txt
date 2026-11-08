@@ -1,0 +1,17 @@
+# 图像处理管线（阶段1-6）
+numpy>=1.26
+opencv-python>=4.8
+opencv-contrib-python>=4.8      # cv2.ximgproc.thinning（Zhang-Suen / Guo-Hall 细化）
+scikit-image>=0.22              # threshold_sauvola（多尺度二值化）
+Pillow>=10.0                    # EXIF 旋转、PNG 保存
+scikit-learn>=1.3               # DBSCAN 聚类
+
+# Excel 交付 QC（src/excel/）
+openpyxl>=3.1
+
+# 说明：
+# - 阶段3 骨架追踪依赖第三方 C 扩展（SWIG 编译，非 pip 包）：
+#   src/vendor/skeleton_tracing_py312_win_amd64/（cp312-win-amd64 预编译运行时）
+#   上游源码保留在 src/third_party/skeleton-tracing/。
+# - 建议 Python 3.12（与现成 pyd 匹配）
+augraphy>=8.2
